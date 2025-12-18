@@ -3,15 +3,10 @@ server:
 
 spring:
   datasource:
+    driver-class-name: software.amazon.jdbc.Driver
     url: ${DATABASE_URL}
     username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
-
-springdoc:
-  api-docs:
-    path: /v3/api-docs
-  swagger-ui:
-    path: /swagger-ui.html
+    database-platform: org.hibernate.dialect.MySQLDialect # Opcional, pero recomendado
