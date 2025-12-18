@@ -4,13 +4,8 @@ server:
 spring:
   datasource:
     driver-class-name: software.amazon.jdbc.Driver
-    url: jdbc:aws-wrapper:mysql://ecommerce-db.cwnqc6aiq5z8.us-east-1.rds.amazonaws.com:3306/products
-    username: admin
-    hikari:
-      data-source-properties:
-        wrapperPlugins: secretsManager
-        secretsManagerSecretId: rdsIdb-d762b259-c2c7-4997-b4fb-079bcf17d3f7
-        secretsManagerRegion: us-east-1
+    url: jdbc:aws-wrapper:mysql://ecommerce-db.cwnqc6aiq5z8.us-east-1.rds.amazonaws.com:3306/products?wrapperPlugins=awsSecretsManager&secretsManagerSecretId=arn:aws:secretsmanager:us-east-1:820754029757:secret:rds%21db-d762b259-c2c7-4997-b4fb-079bcf17d3f7-tvyjtZ&secretsManagerRegion=us-east-1
+    username: ${DATABASE_USER:admin}
   jpa:
     hibernate:
       ddl-auto: update
