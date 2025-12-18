@@ -29,6 +29,16 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>software.amazon.awssdk</groupId>
+				<artifactId>bom</artifactId>
+				<version>2.40.6</version> <type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -41,14 +51,10 @@
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>sts</artifactId>
-			<version>2.39.2</version>
-			<scope>compile</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/secretsmanager -->
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>secretsmanager</artifactId>
-			<version>2.40.9</version>
 		</dependency>
 		<dependency>
 			<groupId>software.amazon.jdbc</groupId>
