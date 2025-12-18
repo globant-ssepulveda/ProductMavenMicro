@@ -16,6 +16,7 @@ public class SecurityConfiguration {
     http
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(request -> request
+            .requestMatchers("/actuator/health").permitAll()
             .anyRequest().permitAll()
         );
 
